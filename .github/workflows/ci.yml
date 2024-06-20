@@ -1,0 +1,17 @@
+name: Test upload To Azure Blob Storage
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/blob-storage-upload
+        with:
+          source_file: test
+          container_name: test-container
+          connection_string: ${{ secrets.CONNECTION_STRING }}
+          overwrite: 'true'
