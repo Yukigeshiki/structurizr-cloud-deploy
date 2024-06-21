@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
 
 jobs:
-  upload-coredsl-to-blob-storage:
+  upload:
+    name: Upload core.dsl to Blob Storage
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,7 +20,8 @@ jobs:
           connection_string: ${{ secrets.CONNECTION_STRING }}
           overwrite: 'true'
 
-  push-workspace-to-structurizr-cloud:
+  push:
+    name: Push Workspace to Structurizr Cloud
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
