@@ -1,4 +1,5 @@
-name: Test upload To Azure Blob Storage
+name: Test upload To Azure Blob Storage and Structurizr Cloud push
+
 on:
   push:
     branches:
@@ -15,3 +16,15 @@ jobs:
           container_name: test-container
           connection_string: ${{ secrets.CONNECTION_STRING }}
           overwrite: 'true'
+
+  structurizr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aidmax/structurizr-cli-action@v1
+        with:
+          id: ${{ secrets.STRUCTURIZR_WORKSPACE_ID }}
+          key: ${{ secrets.STRUCTURIZR_API_KEY }}
+          secret: ${{ secrets.STRUCTURIZR_API_SECRET }}
+          workspace: dsl/test/workspace.dsl
+

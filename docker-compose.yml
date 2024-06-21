@@ -1,0 +1,9 @@
+version: '2.1'
+services:
+
+  mssql:
+    image: node
+    volumes:
+      - ./:/src/app
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
