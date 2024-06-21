@@ -1,4 +1,4 @@
-name: "Azure Blob Storage Upload"
+name: "Azure Blob Storage File Upload"
 description: "Uploads asset to Azure Blob Storage"
 inputs:
   connection_string:
@@ -11,13 +11,13 @@ inputs:
     description: "The name of the storage account. Required if sas_token is used"
     required: false
   container_name:
-    description: "The name of the storage account container these assets will be uploaded to"
+    description: "The name of the storage account container this asset will be uploaded to"
     required: true
   source_file:
     description: "The name of the file you want to upload"
     required: true
   overwrite:
-    description: "Overwrite existing files in the destination container. Defaults to false"
+    description: "Overwrite existing file in the destination container. Defaults to false"
     required: false
 runs:
   using: "docker"

@@ -16,8 +16,8 @@ jobs:
       - uses: ./.github/actions/blob-storage-upload
         with:
           source_file: dsl/bic/core.dsl
-          container_name: test-container
-          connection_string: ${{ secrets.CONNECTION_STRING }} # this value is rotated every 365 days (last rotated date YYYY-MM-DD)
+          container_name: coredsl
+          connection_string: ${{ secrets.CONNECTION_STRING }} # this value is rotated every 365 days (last rotated date 6/21/2024)
           overwrite: true
 
   push:
