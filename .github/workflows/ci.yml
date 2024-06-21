@@ -6,18 +6,18 @@ on:
       - main
 
 jobs:
-  upload:
+  upload-coredsl-to-blob-storage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/blob-storage-upload
         with:
-          source_file: test
+          source_file: dsl/bic/core.dsl
           container_name: test-container
           connection_string: ${{ secrets.CONNECTION_STRING }}
           overwrite: 'true'
 
-  structurizr:
+  push-workspace-to-structurizr-cloud:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,5 +26,5 @@ jobs:
           id: ${{ secrets.STRUCTURIZR_WORKSPACE_ID }}
           key: ${{ secrets.STRUCTURIZR_API_KEY }}
           secret: ${{ secrets.STRUCTURIZR_API_SECRET }}
-          workspace: dsl/test/workspace.dsl
+          workspace: dsl/bic/workspace.dsl
 
