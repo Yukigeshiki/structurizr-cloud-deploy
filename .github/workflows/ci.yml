@@ -17,7 +17,7 @@ jobs:
         with:
           source_file: dsl/bic/core.dsl
           container_name: test-container
-          connection_string: ${{ secrets.CONNECTION_STRING }}
+          connection_string: ${{ secrets.CONNECTION_STRING }} # this value is rotated every 365 days (last rotated date YYYY-MM-DD)
           overwrite: 'true'
 
   push:
