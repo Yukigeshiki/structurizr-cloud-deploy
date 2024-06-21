@@ -1,6 +1,8 @@
 # structurizr-cloud-deploy
 A GitHub Actions deploy pipeline for Structurizr Cloud
 
+### To view diagram(s):
+
 1) Run these two commands from the root of the source code repository.
 ```
 docker pull structurizr/lite
