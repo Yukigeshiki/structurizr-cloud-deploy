@@ -1,4 +1,4 @@
-name: Test upload To Azure Blob Storage and Structurizr Cloud push
+name: Deploy to Structurizr Cloud
 
 on:
   push:
@@ -9,14 +9,14 @@ on:
 
 jobs:
   upload:
-    name: Upload core.dsl to Blob Storage
+    name: Upload .dsl Files to Blob Storage
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/blob-storage-upload
         with:
-          source_file: dsl/bic/core.dsl
-          container_name: coredsl
+          source_files: dsl/bic/core.dsl dsl/bic/workspace.dsl
+          container_names: test-container-1 test-container-2
           connection_string: ${{ secrets.CONNECTION_STRING }} # this value is rotated every 365 days (last rotated date 6/21/2024)
           overwrite: true
 

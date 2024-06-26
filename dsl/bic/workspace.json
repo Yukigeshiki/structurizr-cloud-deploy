@@ -1,84 +1,268 @@
 {
   "configuration" : { },
-  "description" : "Description",
+  "description" : "[description]",
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-javascript",
-  "lastModifiedDate" : "2024-06-21T06:44:02Z",
+  "lastModifiedDate" : "2024-06-25T13:53:03Z",
   "model" : {
     "people" : [ {
-      "id" : "1",
+      "description" : "Participant in the clinical trial",
+      "id" : "5",
       "location" : "Unspecified",
-      "name" : "User",
+      "name" : "Patient",
       "properties" : {
-        "structurizr.dsl.identifier" : "u"
+        "structurizr.dsl.identifier" : "patient"
+      },
+      "tags" : "Element,Person,Patient"
+    }, {
+      "description" : "Investigators and clinical research associates (CRAs) that gather clinical trial data in for the conduct of a clinical trial",
+      "group" : "Clinical Site Staff",
+      "id" : "6",
+      "location" : "Unspecified",
+      "name" : "Investigators and CRAs",
+      "properties" : {
+        "structurizr.dsl.identifier" : "clinical_site_staff"
       },
       "relationships" : [ {
-        "description" : "Uses",
-        "destinationId" : "2",
-        "id" : "3",
+        "description" : "engages with and gathers data from",
+        "destinationId" : "5",
+        "id" : "7",
         "properties" : {
-          "structurizr.dsl.identifier" : "34d393a9-1e30-4f51-91d3-46a42f465ee1"
+          "structurizr.dsl.identifier" : "747688de-0dc3-486c-ad43-c65ce4d92834"
         },
-        "sourceId" : "1",
+        "sourceId" : "6",
+        "tags" : "Relationship"
+      }, {
+        "description" : "send samples to central lab",
+        "destinationId" : "8",
+        "id" : "15",
+        "properties" : {
+          "structurizr.dsl.identifier" : "74f22118-3e6f-4d85-9eef-321d33b90ef4"
+        },
+        "sourceId" : "6",
         "tags" : "Relationship"
       } ],
+      "tags" : "Element,Person,Site Staff"
+    }, {
+      "description" : "Analyze collected samples, put data into a spreadsheet, and transmit data into the CDMS",
+      "group" : "Lab",
+      "id" : "8",
+      "location" : "Unspecified",
+      "name" : "Lab Staff",
+      "properties" : {
+        "structurizr.dsl.identifier" : "lab_staff"
+      },
+      "tags" : "Element,Person,Lab Staff"
+    }, {
+      "description" : "Ensures the clinical trial is conducted per the protocol",
+      "group" : "Sponsor",
+      "id" : "9",
+      "location" : "Unspecified",
+      "name" : "Sponsor Project Manager",
+      "properties" : {
+        "structurizr.dsl.identifier" : "sponsor_pm"
+      },
+      "tags" : "Element,Person"
+    }, {
+      "description" : "Ensures the clinical trial data capture and management is conducted per the protocol",
+      "group" : "BIC (CRO)",
+      "id" : "10",
+      "location" : "Unspecified",
+      "name" : "BIC Project Manager",
+      "properties" : {
+        "structurizr.dsl.identifier" : "bic_pm"
+      },
+      "tags" : "Element,Person"
+    }, {
+      "description" : "Deploy and manage software systems.",
+      "group" : "BIC (CRO)",
+      "id" : "11",
+      "location" : "Unspecified",
+      "name" : "BIC IT Administrator",
+      "properties" : {
+        "structurizr.dsl.identifier" : "bic_ita"
+      },
+      "tags" : "Element,Person,role"
+    }, {
+      "description" : "Define software system requirements.",
+      "group" : "BIC (CRO)",
+      "id" : "12",
+      "location" : "Unspecified",
+      "name" : "BIC Product Owner (PO)",
+      "properties" : {
+        "structurizr.dsl.identifier" : "bic_product_owner"
+      },
+      "tags" : "Element,Person"
+    }, {
+      "description" : "Architects, designs, and implements software systems",
+      "group" : "BIC (CRO)",
+      "id" : "13",
+      "location" : "Unspecified",
+      "name" : "BIC Application Engineer (AE)",
+      "properties" : {
+        "structurizr.dsl.identifier" : "bic_application_engineer"
+      },
+      "tags" : "Element,Person"
+    }, {
+      "description" : "Assesses risk and implements quality control checks to ensure data integrity",
+      "group" : "BIC (CRO)",
+      "id" : "14",
+      "location" : "Unspecified",
+      "name" : "BIC Quality Control Engineer (QC)",
+      "properties" : {
+        "structurizr.dsl.identifier" : "bic_quality_control_engineer"
+      },
       "tags" : "Element,Person"
     } ],
     "softwareSystems" : [ {
+      "description" : "Clinical Trial Data Management System a collection of computer systems used in the conduct of a clinical trial",
+      "documentation" : { },
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "Clinical Data Management System (CDMS)",
+      "properties" : {
+        "structurizr.dsl.identifier" : "cdms"
+      },
+      "tags" : "Element,Software System"
+    }, {
+      "description" : "Work management system used to coordinate work effort",
       "documentation" : { },
       "id" : "2",
       "location" : "Unspecified",
-      "name" : "Software System",
+      "name" : "Work Management System (WMS)",
       "properties" : {
-        "structurizr.dsl.identifier" : "ss"
+        "structurizr.dsl.identifier" : "wms"
+      },
+      "tags" : "Element,Software System"
+    }, {
+      "description" : "Source code control system used to manage BIC source code",
+      "documentation" : { },
+      "id" : "3",
+      "location" : "Unspecified",
+      "name" : "Source Code Control System (SCCS)",
+      "properties" : {
+        "structurizr.dsl.identifier" : "sccs"
+      },
+      "tags" : "Element,Software System"
+    }, {
+      "description" : "Electronic signature system used for change control, client authorization, and client approval",
+      "documentation" : { },
+      "id" : "4",
+      "location" : "Unspecified",
+      "name" : "Electric Signature System (ESIG)",
+      "properties" : {
+        "structurizr.dsl.identifier" : "esig"
       },
       "tags" : "Element,Software System"
     } ]
   },
-  "name" : "Name",
+  "name" : "[name]",
   "properties" : {
-    "structurizr.dsl" : "d29ya3NwYWNlIHsKCiAgICBtb2RlbCB7CiAgICAgICAgdSA9IHBlcnNvbiAiVXNlciIKICAgICAgICBzcyA9IHNvZnR3YXJlU3lzdGVtICJTb2Z0d2FyZSBTeXN0ZW0iCgogICAgICAgIHUgLT4gc3MgIlVzZXMiCiAgICB9CgogICAgdmlld3MgewogICAgICAgIHN5c3RlbUNvbnRleHQgc3MgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KICAgIH0KCn0K"
+    "structurizr.dsl" : "d29ya3NwYWNlICJbbmFtZV0iICJbZGVzY3JpcHRpb25dIiB7CgogICAgbW9kZWwgewogICAgICAgICMgU29mdHdhcmUgU3lzdGVtcwogICAgICAgIENETVMgPSBzb2Z0d2FyZVN5c3RlbSAiQ2xpbmljYWwgRGF0YSBNYW5hZ2VtZW50IFN5c3RlbSAoQ0RNUykiICJDbGluaWNhbCBUcmlhbCBEYXRhIE1hbmFnZW1lbnQgU3lzdGVtIGEgY29sbGVjdGlvbiBvZiBjb21wdXRlciBzeXN0ZW1zIHVzZWQgaW4gdGhlIGNvbmR1Y3Qgb2YgYSBjbGluaWNhbCB0cmlhbCIKICAgICAgICBXTVMgID0gc29mdHdhcmVTeXN0ZW0gIldvcmsgTWFuYWdlbWVudCBTeXN0ZW0gKFdNUykiICJXb3JrIG1hbmFnZW1lbnQgc3lzdGVtIHVzZWQgdG8gY29vcmRpbmF0ZSB3b3JrIGVmZm9ydCIKICAgICAgICBTQ0NTID0gc29mdHdhcmVTeXN0ZW0gIlNvdXJjZSBDb2RlIENvbnRyb2wgU3lzdGVtIChTQ0NTKSIgIlNvdXJjZSBjb2RlIGNvbnRyb2wgc3lzdGVtIHVzZWQgdG8gbWFuYWdlIEJJQyBzb3VyY2UgY29kZSIKICAgICAgICBFU0lHID0gc29mdHdhcmVTeXN0ZW0gIkVsZWN0cmljIFNpZ25hdHVyZSBTeXN0ZW0gKEVTSUcpIiAiRWxlY3Ryb25pYyBzaWduYXR1cmUgc3lzdGVtIHVzZWQgZm9yIGNoYW5nZSBjb250cm9sLCBjbGllbnQgYXV0aG9yaXphdGlvbiwgYW5kIGNsaWVudCBhcHByb3ZhbCIKICAgICAgICAKICAgICAgICAKICAgICAgICAjIFBlb3BsZS9Sb2xlcwogICAgICAgIHBhdGllbnQgPSBwZXJzb24gIlBhdGllbnQiICJQYXJ0aWNpcGFudCBpbiB0aGUgY2xpbmljYWwgdHJpYWwiICJQYXRpZW50IgogICAgICAgIAogICAgICAgIGNsaW5pY2FsX3NpdGUgPSBncm91cCAiQ2xpbmljYWwgU2l0ZSBTdGFmZiIgewogICAgICAgICAgICBjbGluaWNhbF9zaXRlX3N0YWZmID0gcGVyc29uICJJbnZlc3RpZ2F0b3JzIGFuZCBDUkFzIiAiSW52ZXN0aWdhdG9ycyBhbmQgY2xpbmljYWwgcmVzZWFyY2ggYXNzb2NpYXRlcyAoQ1JBcykgdGhhdCBnYXRoZXIgY2xpbmljYWwgdHJpYWwgZGF0YSBpbiBmb3IgdGhlIGNvbmR1Y3Qgb2YgYSBjbGluaWNhbCB0cmlhbCIgIlNpdGUgU3RhZmYiCiAgICAgICAgICAgIGNsaW5pY2FsX3NpdGVfc3RhZmYgLT4gcGF0aWVudCAiZW5nYWdlcyB3aXRoIGFuZCBnYXRoZXJzIGRhdGEgZnJvbSIKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgbGFiID0gZ3JvdXAgIkxhYiIgewogICAgICAgICAgICBsYWJfc3RhZmYgPSBwZXJzb24gIkxhYiBTdGFmZiIgIkFuYWx5emUgY29sbGVjdGVkIHNhbXBsZXMsIHB1dCBkYXRhIGludG8gYSBzcHJlYWRzaGVldCwgYW5kIHRyYW5zbWl0IGRhdGEgaW50byB0aGUgQ0RNUyIgIkxhYiBTdGFmZiIKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgc3BvbnNvciA9IGdyb3VwICJTcG9uc29yIiB7CiAgICAgICAgICAgIHNwb25zb3JfcG0gPSBwZXJzb24gIlNwb25zb3IgUHJvamVjdCBNYW5hZ2VyIiAiRW5zdXJlcyB0aGUgY2xpbmljYWwgdHJpYWwgaXMgY29uZHVjdGVkIHBlciB0aGUgcHJvdG9jb2wiCiAgICAgICAgfQogICAgICAgIAogICAgICAgIGJpYyA9IGdyb3VwICJCSUMgKENSTykiIHsKICAgICAgICAgICAgYmljX3BtID0gcGVyc29uICJCSUMgUHJvamVjdCBNYW5hZ2VyIiAiRW5zdXJlcyB0aGUgY2xpbmljYWwgdHJpYWwgZGF0YSBjYXB0dXJlIGFuZCBtYW5hZ2VtZW50IGlzIGNvbmR1Y3RlZCBwZXIgdGhlIHByb3RvY29sIgogICAgICAgIAogICAgICAgICAgICAvLyBUaGluayBhYm91dCBob3cgd2Ugb3JnYW5pemUgcm9sZXMKICAgICAgICAKICAgICAgICAgICAgYmljX2l0YSA9IHBlcnNvbiAiQklDIElUIEFkbWluaXN0cmF0b3IiICJEZXBsb3kgYW5kIG1hbmFnZSBzb2Z0d2FyZSBzeXN0ZW1zLiIgewogICAgICAgICAgICAgICAgICAgIHRhZ3MgInJvbGUiCiAgICAgICAgICAgIH0KICAgICAgICAKICAgICAgICAgICAgYmljX3Byb2R1Y3Rfb3duZXIgPSBwZXJzb24gIkJJQyBQcm9kdWN0IE93bmVyIChQTykiICJEZWZpbmUgc29mdHdhcmUgc3lzdGVtIHJlcXVpcmVtZW50cy4iCiAgICAgICAgICAgIGJpY19hcHBsaWNhdGlvbl9lbmdpbmVlciA9IHBlcnNvbiAiQklDIEFwcGxpY2F0aW9uIEVuZ2luZWVyIChBRSkiICJBcmNoaXRlY3RzLCBkZXNpZ25zLCBhbmQgaW1wbGVtZW50cyBzb2Z0d2FyZSBzeXN0ZW1zIgogICAgICAgICAgICBiaWNfcXVhbGl0eV9jb250cm9sX2VuZ2luZWVyID0gcGVyc29uICJCSUMgUXVhbGl0eSBDb250cm9sIEVuZ2luZWVyIChRQykiICJBc3Nlc3NlcyByaXNrIGFuZCBpbXBsZW1lbnRzIHF1YWxpdHkgY29udHJvbCBjaGVja3MgdG8gZW5zdXJlIGRhdGEgaW50ZWdyaXR5IgogICAgICAgIAogICAgICAgIAogICAgICAgIH0KICAgICAgICAKICAgICAgICAKICAgICAgICAgICAgICAgIGNsaW5pY2FsX3NpdGVfc3RhZmYgLT4gbGFiX3N0YWZmICJzZW5kIHNhbXBsZXMgdG8gY2VudHJhbCBsYWIiCiAgICB9CgogICAgdmlld3MgewogICAgICAgIHRoZW1lIGRlZmF1bHQKICAgICAgICB0aGVtZXMgaHR0cHM6Ly9zdGF0aWMuc3RydWN0dXJpenIuY29tL3RoZW1lcy9taWNyb3NvZnQtYXp1cmUtMjAyMy4wMS4yNC9pY29ucy5qc29uCiAgICAgICAgCiAgICAgICAgc3R5bGVzIHsKICAgICAgICAgICAgZWxlbWVudCAiUGVyc29uIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBwZXJzb24KICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJSREJNUyIgewogICAgICAgICAgICAgICAgc2hhcGUgQ3lsaW5kZXIKICAgICAgICAgICAgfQogICAgICAgICAgICByZWxhdGlvbnNoaXAgIlJlbGF0aW9uc2hpcCIgewogICAgICAgICAgICAgICAgZGFzaGVkIGZhbHNlCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgCiAgICAgICAgc3lzdGVtTGFuZHNjYXBlIGFsbHJvbGVzIHsKICAgICAgICAgICAgdGl0bGUgIkFsbCBSb2xlcyIKICAgICAgICAgICAgZGVzY3JpcHRpb24gIkV2ZXJ5IFJvbGUgaW52b2x2ZWQgaW4gYSBjbGluaWNhbCB0cmlhbCIKICAgICAgICAgICAgaW5jbHVkZSBlbGVtZW50LnR5cGU9PVBlcnNvbgogICAgICAgIH0KICAgICAgICAKICAgICAgICBzeXN0ZW1MYW5kc2NhcGUgYWxsc3lzdGVtcyB7CiAgICAgICAgICAgIHRpdGxlICJBbGwgc3lzdGVtcyIKICAgICAgICAgICAgZGVzY3JpcHRpb24gIkV2ZXJ5IFNvZnR3YXJlIFN5c3RlbSB1c2VkIGluIGEgY2xpbmljYWwgdHJpYWwiCiAgICAgICAgICAgIGluY2x1ZGUgZWxlbWVudC50eXBlPT1zb2Z0d2FyZVN5c3RlbQogICAgICAgIH0KICAgIH0KCn0K"
   },
   "views" : {
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "SystemContext-001",
+      "lastSavedView" : "allsystems",
       "metadataSymbols" : "SquareBrackets",
-      "styles" : { },
-      "terminology" : { }
-    },
-    "systemContextViews" : [ {
-      "automaticLayout" : {
-        "applied" : true,
-        "edgeSeparation" : 0,
-        "implementation" : "Graphviz",
-        "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
-        "rankSeparation" : 300,
-        "vertices" : false
+      "styles" : {
+        "elements" : [ {
+          "shape" : "Person",
+          "tag" : "Person"
+        }, {
+          "shape" : "Cylinder",
+          "tag" : "RDBMS"
+        } ],
+        "relationships" : [ {
+          "dashed" : false,
+          "tag" : "Relationship"
+        } ]
       },
+      "terminology" : { },
+      "themes" : [ "https://static.structurizr.com/themes/default/theme.json", "https://static.structurizr.com/themes/microsoft-azure-2023.01.24/icons.json" ]
+    },
+    "systemLandscapeViews" : [ {
+      "description" : "Every Role involved in a clinical trial",
       "dimensions" : {
-        "height" : 700,
-        "width" : 1600
+        "height" : 1758,
+        "width" : 5258
+      },
+      "elements" : [ {
+        "id" : "5",
+        "x" : 4179,
+        "y" : 1029
+      }, {
+        "id" : "6",
+        "x" : 3829,
+        "y" : 329
+      }, {
+        "id" : "8",
+        "x" : 3479,
+        "y" : 1029
+      }, {
+        "id" : "9",
+        "x" : 4529,
+        "y" : 329
+      }, {
+        "id" : "10",
+        "x" : 3129,
+        "y" : 329
+      }, {
+        "id" : "11",
+        "x" : 2429,
+        "y" : 329
+      }, {
+        "id" : "12",
+        "x" : 1729,
+        "y" : 329
+      }, {
+        "id" : "13",
+        "x" : 1029,
+        "y" : 329
+      }, {
+        "id" : "14",
+        "x" : 329,
+        "y" : 329
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "allroles",
+      "order" : 1,
+      "paperSize" : "A2_Landscape",
+      "relationships" : [ {
+        "id" : "15"
+      }, {
+        "id" : "7"
+      } ],
+      "title" : "All Roles"
+    }, {
+      "description" : "Every Software System used in a clinical trial",
+      "dimensions" : {
+        "height" : 716,
+        "width" : 3116
       },
       "elements" : [ {
         "id" : "1",
-        "x" : 200,
-        "y" : 200
+        "x" : 208,
+        "y" : 208
       }, {
         "id" : "2",
-        "x" : 950,
-        "y" : 200
+        "x" : 958,
+        "y" : 208
+      }, {
+        "id" : "3",
+        "x" : 1708,
+        "y" : 208
+      }, {
+        "id" : "4",
+        "x" : 2458,
+        "y" : 208
       } ],
       "enterpriseBoundaryVisible" : true,
-      "generatedKey" : true,
-      "key" : "SystemContext-001",
-      "order" : 1,
-      "relationships" : [ {
-        "id" : "3"
-      } ],
-      "softwareSystemId" : "2"
+      "key" : "allsystems",
+      "order" : 2,
+      "paperSize" : "A4_Landscape",
+      "title" : "All systems"
     } ]
   }
 }

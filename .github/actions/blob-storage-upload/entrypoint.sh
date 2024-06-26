@@ -2,13 +2,21 @@
 
 set -e
 
-if [[ -z "$INPUT_SOURCE_FILE" ]]; then
-  echo "source directory is not set. Quitting."
+if [[ -z "$INPUT_SOURCE_FILES" ]]; then
+  echo "source directory(s) is not set. Quitting."
   exit 1
 fi
 
-if [[ -z "$INPUT_CONTAINER_NAME" ]]; then
-  echo "storage account container name is not set. Quitting."
+if [[ -z "$INPUT_CONTAINER_NAMES" ]]; then
+  echo "storage account container name(s) is not set. Quitting."
+  exit 1
+fi
+
+SOURCE_FILE_ARR=($INPUT_SOURCE_FILES)
+CONTAINER_ARR=($INPUT_CONTAINER_NAMES)
+
+if [[ "${#SOURCE_FILE_ARR[@]}" -ne "${#CONTAINER_ARR[@]}" ]]; then
+  echo "number of source files is not equal to number of container names. Quitting."
   exit 1
 fi
 
@@ -33,4 +41,6 @@ if [[ -n ${INPUT_OVERWRITE} ]]; then
   ARG_OVERWRITE="--overwrite true"
 fi
 
-az storage blob upload $CONNECTION_METHOD --file $INPUT_SOURCE_FILE --container-name $INPUT_CONTAINER_NAME $ARG_OVERWRITE
+for i in "${!SOURCE_FILE_ARR[@]}"; do
+  az storage blob upload $CONNECTION_METHOD --file ${SOURCE_FILE_ARR[$i]} --container-name ${CONTAINER_ARR[$i]} $ARG_OVERWRITE
+done

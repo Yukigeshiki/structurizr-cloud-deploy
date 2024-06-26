@@ -1,7 +1,7 @@
 workspace {
 
     model {
-        u = person "TestUser"
+        u = person "User"
         ss = softwareSystem "Software System"
 
         u -> ss "Uses"

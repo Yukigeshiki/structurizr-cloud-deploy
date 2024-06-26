@@ -10,11 +10,11 @@ inputs:
   account_name:
     description: "The name of the storage account. Required if sas_token is used"
     required: false
-  container_name:
-    description: "The name of the storage account container this asset will be uploaded to"
+  container_names:
+    description: "The one or more space separated storage account container names corresponding to the files you want to upload"
     required: true
-  source_file:
-    description: "The name of the file you want to upload"
+  source_files:
+    description: "The one or more space separated filepaths to the files you want to upload"
     required: true
   overwrite:
     description: "Overwrite existing file in the destination container. Defaults to false"
